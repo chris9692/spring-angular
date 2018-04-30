@@ -18,8 +18,12 @@ export class ContactCreateComponent implements OnInit {
 
   saveContact() {
     this.http.post('/contacts', this.contact)
-      .subscribe(res => {
-          this.router.navigate(['/contact-detail', res]);
+      .subscribe((res) => {
+          console.log(res);
+          //this.contact = res;
+          let id = res['id'];
+          this.router.navigate(['/contact-detail', id]);
+          //this.router.navigate(['/contact-detail/'+res.id]);
         }, (err) => {
           console.log(err);
         }

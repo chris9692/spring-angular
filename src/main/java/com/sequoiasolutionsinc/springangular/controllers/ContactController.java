@@ -23,9 +23,9 @@ public class ContactController {
 
     @RequestMapping(method=RequestMethod.POST, value="/contacts")
     public Contact save(@RequestBody Contact contact) {
-        contactRepository.save(contact);
+        Contact saved = contactRepository.save(contact);
 
-        return contact;
+        return saved;
     }
 
     @RequestMapping(method=RequestMethod.GET, value="/contacts/{id}")

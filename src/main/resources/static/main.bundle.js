@@ -195,7 +195,11 @@ var ContactCreateComponent = /** @class */ (function () {
         var _this = this;
         this.http.post('/contacts', this.contact)
             .subscribe(function (res) {
-            _this.router.navigate(['/contact-detail', res]);
+            console.log(res);
+            //this.contact = res;
+            var id = res['id'];
+            _this.router.navigate(['/contact-detail', id]);
+            //this.router.navigate(['/contact-detail/'+res.id]);
         }, function (err) {
             console.log(err);
         });
